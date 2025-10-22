@@ -1,0 +1,16 @@
+{
+  "name": "mega-extractor-uploader",
+  "version": "1.0.0",
+  "description": "MEGA extractor + sequential Telegram uploader (megajs + ffmpeg)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "megajs": "^1.0.0",
+    "morgan": "^1.10.0"
+  }
+}
