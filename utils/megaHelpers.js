@@ -29,7 +29,7 @@ async function collectMegaFiles(url) {
         name: node.name,
         size: node.size,
         fullPath: curPath,
-        link: typeof node.link === "function" ? node.link() : null
+        link: node.link && typeof node.link === "function" ? node.link() : null
       });
     }
   }
