@@ -27,7 +27,7 @@ async function downloadFileFromNode(fileObj) {
   if (!fileId) throw new Error('missing file id');
 
   // Create a download URL and use megajs File.fromURL to handle
-  const megaUrl = `https://mega.nz/file/${fileId}#${fileObj.key}`;
+  const megaUrl = fileObj.link || `https://mega.nz/file/${fileId}#${fileObj.key}`;
   const file = File.fromURL(megaUrl);
   await file.loadAttributes();
 
