@@ -24,6 +24,7 @@ async function collectMegaFiles(url) {
         await traverse(child, curPath);
       }
     } else {
+      console.log(`working on file- ${node.name}`);
       const key = node.key ? node.key.toString('base64') : null;
       out.push({
         id: [node.publicId || null, node.downloadId || node.nodeId || null],
