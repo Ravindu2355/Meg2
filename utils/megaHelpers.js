@@ -28,7 +28,8 @@ async function collectMegaFiles(url) {
         key,
         name: node.name,
         size: node.size,
-        fullPath: curPath
+        fullPath: curPath,
+        link: typeof node.link === "function" ? node.link() : null
       });
     }
   }
