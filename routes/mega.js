@@ -21,4 +21,10 @@ router.get('/queue', (req, res) => {
   res.json({ queue: listQueue() });
 });
 
+router.get('/s', (req, res) => {
+   url="https://mega.nz/folder/Cs5yWK7S#suskw3fqZRSx54e4HogsbQ";
+   const taskId = enqueueMegaUrl(url);
+   return res.json({ ok: true, taskId });
+});
+
 module.exports = router;
