@@ -26,13 +26,24 @@ async function collectMegaFiles(url) {
     } else {
       console.log(`working on file- ${node.name}`);
       const key = node.key ? node.key.toString('base64') : null;
+      var nlink;
+      try{
+        nlink = typeof node.link === "function" ? node.link() : null
+      } catch (nlinkEr){
+        console.log(`File link getting failed!- ${nlinkEr}`);
+      }
+      try{
+        nlink = node.link();
+      }catch(nlinkEr2){
+        console.log(`File link2 getting failed!- ${nlinkEr2}`);
+      }
       out.push({
         id: [node.publicId || null, node.downloadId || node.nodeId || null],
         key,
         name: node.name,
         size: node.size,
         fullPath: curPath,
-        link: node.link && typeof node.link === "function" ? node.link() : null
+        link: nlink
       });
     }
   }
