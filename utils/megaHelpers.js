@@ -17,7 +17,9 @@ async function collectMegaFiles(url) {
 
     if (node.directory) {
       // traverse children
+      console.log(`searching dir- ${node.name}`);
       const children = node.children || [];
+      console.log(`Found ${children.length}`);
       for (let child of children) {
         await traverse(child, curPath);
       }
